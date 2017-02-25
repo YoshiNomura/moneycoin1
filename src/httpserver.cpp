@@ -314,7 +314,7 @@ static void ThreadHTTP(struct event_base* base, struct evhttp* http)
 /** Bind HTTP server to specified addresses */
 static bool HTTPBindAddresses(struct evhttp* http)
 {
-    int defaultPort = GetArg("-rpcport", BaseParams().RPCPort());
+    int defaultPort = GetArg("-Listen for connections onrpcport", BaseParams().RPCPort());
     std::vector<std::pair<std::string, uint16_t> > endpoints;
 
     // Determine what addresses to bind to

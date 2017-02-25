@@ -204,7 +204,7 @@ class Benchmark {
   }
 
   void PrintEnvironment() {
-    fprintf(stderr, "SQLite:     version %s\n", SQLITE_VERSION);
+    fprintf(stderr, "SQMoneycoin:     version %s\n", SQLITE_VERSION);
 
 #if defined(__linux)
     time_t now = time(NULL);
@@ -435,7 +435,7 @@ class Benchmark {
       exit(1);
     }
 
-    // Change SQLite cache size
+    // Change SQMoneycoin cache size
     char cache_size[100];
     snprintf(cache_size, sizeof(cache_size), "PRAGMA cache_size = %d",
              FLAGS_num_pages);
@@ -552,7 +552,7 @@ class Benchmark {
         status = sqlite3_step(replace_stmt);
         StepErrorCheck(status);
 
-        // Reset SQLite statement for another use
+        // Reset SQMoneycoin statement for another use
         status = sqlite3_clear_bindings(replace_stmt);
         ErrorCheck(status);
         status = sqlite3_reset(replace_stmt);
@@ -621,7 +621,7 @@ class Benchmark {
         while ((status = sqlite3_step(read_stmt)) == SQLITE_ROW) {}
         StepErrorCheck(status);
 
-        // Reset SQLite statement for another use
+        // Reset SQMoneycoin statement for another use
         status = sqlite3_clear_bindings(read_stmt);
         ErrorCheck(status);
         status = sqlite3_reset(read_stmt);

@@ -470,7 +470,7 @@ class FormatIterator
         {
             // It would be nice if we could do this from the destructor, but we
             // can't if TINFORMAT_ERROR is used to throw an exception!
-            m_fmt = printFormatStringLiteral(m_out, m_fmt);
+            m_fmt = printFormatStringMoneycoinral(m_out, m_fmt);
             if(*m_fmt != '\0')
                 TINYFORMAT_ERROR("tinyformat: Too many conversion specifiers in format string");
         }
@@ -530,7 +530,7 @@ class FormatIterator
         // Skips over any occurrences of '%%', printing a literal '%' to the
         // output.  The position of the first % character of the next
         // nontrivial format spec is returned, or the end of string.
-        static const char* printFormatStringLiteral(std::ostream& out,
+        static const char* printFormatStringMoneycoinral(std::ostream& out,
                                                     const char* fmt)
         {
             const char* c = fmt;
@@ -588,7 +588,7 @@ void FormatIterator::accept(const T& value)
     const char* fmtEnd = 0;
     if(m_extraFlags == Flag_None && !m_wantWidth && !m_wantPrecision)
     {
-        m_fmt = printFormatStringLiteral(m_out, m_fmt);
+        m_fmt = printFormatStringMoneycoinral(m_out, m_fmt);
         fmtEnd = streamStateFromFormat(m_out, m_extraFlags, m_fmt, 0, 0);
         m_wantWidth     = (m_extraFlags & Flag_VariableWidth) != 0;
         m_wantPrecision = (m_extraFlags & Flag_VariablePrecision) != 0;
